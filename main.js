@@ -56,13 +56,11 @@ var mealTypeForm = document.getElementById("type-form");
 var inputValues = document.getElementsByName('meal-type');
 var randomDishSection = document.getElementById('random-dish');
 
-
+mealTypeForm.addEventListener('submit', getInputValue);
 
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 };
-
-mealTypeForm.addEventListener('submit', getInputValue);
 
 function getInputValue() {
   event.preventDefault();
@@ -78,6 +76,18 @@ function randomFood() {
   event.preventDefault();
   if (currentFood === "side") {
     currentFood = sides[getRandomIndex(sides)];
-    randomDishSection.innerHTML = `<p>You should make: ${currentFood}!</p>`;
+  } else if (currentFood === "main-dish") {
+    currentFood = mains[getRandomIndex(mains)];
+  } else if (currentFood === "dessert") {
+    currentFood = desserts[getRandomIndex(desserts)];
+  } else {
+    currentFood = `${mains[getRandomIndex(mains)]} with a side of ${sides[getRandomIndex(sides)]} and ${desserts[getRandomIndex(desserts)]} for dessert`
   }
+  renderRandomFood();
+}
+
+
+function renderRandomFood() {
+  randomDishSection.innerHTML = `<p>You should make: <span class="random-result">${currentFood}!</span></p>
+  <button class="clear-button">Clear</button>`;
 }
