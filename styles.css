@@ -101,5 +101,39 @@ span {
   margin-right: auto;
   margin-top: 25%;
   display: block;
-  width: 25%
+  width: 25%;
+}
+
+p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  display: block;
+  position: absolute;
+  top: 25%;
+  left: 10%;
+  right: 10%;
+  text-align: center;
+  line-height: 300%;
+  font-style: italic;
+}
+
+.random-result {
+  color: black;
+  display: block;
+  line-height: 100%;
+  font-family: 'Roboto', sans-serif;
+  font-size: 32px;
+  font-style: normal;
+}
+
+.clear-button {
+  background-color: #95a5a6;
+  color: white;
+  border: 0px;
+  height: 35px;
+  width: 15%;
+  border-radius: 5px;
+  position: absolute;
+  top: 85%;
+  left: 75%;
 }
