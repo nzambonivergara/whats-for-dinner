@@ -55,27 +55,9 @@ var currentFood;
 var mealTypeForm = document.getElementById("type-form");
 var inputValues = document.getElementsByName('meal-type');
 var randomDishSection = document.getElementById('random-dish');
-console.log(inputValues)
-mealTypeForm.addEventListener('submit', getInputValue);
+
+
 
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 };
-
-function getInputValue() {
-  event.preventDefault();
-  for (var i =0; i < inputValues.length; i++) {
-    if (inputValues[i].checked) {
-      currentFood = inputValues[i].value;
-    }
-  }
-  randomFood()
-}
-
-function randomFood() {
-  event.preventDefault();
-  if (currentFood === "side") {
-    currentFood = sides[getRandomIndex(sides)];
-    randomDishSection.innerHTML = `<p>You should make: ${currentFood}!</p>`;
-  }
-}
