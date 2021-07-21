@@ -53,10 +53,16 @@ var desserts = [
 var currentFood;
 
 var mealTypeForm = document.getElementById("type-form");
-var inputValues = document.getElementsByName('meal-type');
-var randomDishSection = document.getElementById('random-dish');
+var inputValues = document.getElementsByName("meal-type");
+var randomDishSection = document.getElementById("random-dish");
+var clearButton = document.getElementById("clear-button");
+var cookpotImage = document.getElementById("cookpot-icon");
+
+console.log(clearButton)
 
 mealTypeForm.addEventListener('submit', getInputValue);
+clearButton.addEventListener('click', clearView);
+
 
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
@@ -70,7 +76,7 @@ function getInputValue() {
     }
   }
   randomFood()
-}
+};
 
 function randomFood() {
   event.preventDefault();
@@ -84,10 +90,16 @@ function randomFood() {
     currentFood = `${mains[getRandomIndex(mains)]} with a side of ${sides[getRandomIndex(sides)]} and ${desserts[getRandomIndex(desserts)]} for dessert`
   }
   renderRandomFood();
-}
+};
 
 
 function renderRandomFood() {
-  randomDishSection.innerHTML = `<p>You should make: <span class="random-result">${currentFood}!</span></p>
-  <button class="clear-button">Clear</button>`;
-}
+  clearButton.classList.remove("hidden");
+  randomDishSection.innerHTML = `<p>You should make: <span class="random-result">${currentFood}!</span></p>`;
+};
+
+function clearView() {
+  clearButton.classList.add("hidden");
+  randomDishSection.innerHTML = "<img class='' id='cookpot-icon' src='assets/cookpot.svg' atl='cookpot icon'>"
+  mealTypeForm.reset();
+};
