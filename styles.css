@@ -38,7 +38,7 @@ h1 {
   font-size: 24px;
 }
 
-button {
+header > button {
     height: 25px;
     width: 10%;
     font-size: 16px;
