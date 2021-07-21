@@ -22,6 +22,11 @@ body {
 main {
   justify-content: space-around;
 }
+
+.hidden {
+  display: none;
+}
+
 /* ------------- HEADER BAR -----------------*/
 
 header {
@@ -76,17 +81,25 @@ form {
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: 15%;
+  top: 10%;
   left: 15%;
-  line-height: 300%;
-  font-size: 18px;
+  right: 15%;
+  bottom: 10%;
+  line-height: 250%;
+  font-size: 125%;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 200%;
 }
 
 #submit-button {
   background-color: #0fb9b1;
-  border: 0px;
+  border: 2px double #123d98;
+  margin: 5% 0;
   height: 50px;
-  width: 85%;
+  width: 75%;
   border-radius: 5px;
 }
 
@@ -96,7 +109,7 @@ span {
 
 /* ------------- RESULT SECTION -----------------*/
 
-.containers > img {
+#cookpot-icon {
   margin-left: auto;
   margin-right: auto;
   margin-top: 25%;
@@ -106,24 +119,34 @@ span {
 
 p {
   font-family: 'Roboto', sans-serif;
-  font-size: 18px;
+  font-size: 115%;
   display: block;
   position: absolute;
+  bottom: 40%;
   top: 25%;
   left: 10%;
   right: 10%;
   text-align: center;
   line-height: 300%;
   font-style: italic;
+  font-weight: bold;
 }
 
 .random-result {
   color: black;
   display: block;
-  line-height: 100%;
+  line-height: 115%;
   font-family: 'Roboto', sans-serif;
-  font-size: 32px;
+  font-size: 200%;
   font-style: normal;
+
+}
+
+#clear-button-container {
+  position: absolute;
+  height: 60%;
+  width: 35%;
+  margin: 3% 10% 37% 55%;
 }
 
 .clear-button {
