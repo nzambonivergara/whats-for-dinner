@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
 
 <head>
@@ -8,27 +9,20 @@
 </head>
 
 <body>
+  <header>
+    <h1>What's for Dinner?</h1>
+    <button name="add-recipe">ADD A RECIPE</button>
+  </header>
   <main>
-    <section class="add-recipe">
-      <h1>What's for Dinner?</h1>
-      <button name="add-recipe">ADD A RECIPE</button>
-    </section>
-    <section class="containers">
-      <form class="form" id="type-form">
-        <h2>What are you looking for?<span>*</span></h2>
-        <input type="radio" name="meal-type" id="side" value="side" />
-        <label for="side">Side</label>
-        <br>
-        <input type="radio" name="meal-type" id="main-dish" value="main-dish" />
-        <label for="main-dish">Main Dish</label>
-        <br>
-        <input type="radio" name="meal-type" id="dessert" value="dessert" />
-        <label for="dessert">Dessert</label>
-        <br>
-        <input type="radio" name="meal-type" id="entire-meal" value="entire-meal" />
-        <label for="entire-meal"> Entire Meal</label>
-        <br>
-        <input type="submit" id="submit-botton" value="LET'S COOK!" />
+    <section id="form-box" class="containers">
+      <form id="type-form">
+        <h2 class="form">What are you looking for?<span>*</span></h2>
+        <label for="side"><input type="radio" name="meal-type" id="side" value="side" class="form">Side</label>
+        <label for="main-dish"><input type="radio" name="meal-type" id="main-dish" value="main-dish" class="form"/>Main Dish</label>
+        <label for="dessert"><input type="radio" name="meal-type" id="dessert" value="dessert" class="form"/>Dessert</label>
+
+        <label for="entire-meal"><input type="radio" name="meal-type" id="entire-meal" value="entire-meal" class="form"/>Entire Meal</label>
+        <input type="submit" id="submit-button" value="LET'S COOK!" class="form"/>
       </form>
     </section>
     <section id="random-dish" class="containers">
