@@ -86,8 +86,11 @@ function randomFood() {
     currentFood = mains[getRandomIndex(mains)];
   } else if (currentFood === "dessert") {
     currentFood = desserts[getRandomIndex(desserts)];
-  } else {
+  } else if (currentFood === "entire-meal"){
     currentFood = `${mains[getRandomIndex(mains)]} with a side of ${sides[getRandomIndex(sides)]} and ${desserts[getRandomIndex(desserts)]} for dessert`
+  } else {
+    window.alert("Choose a meal type: ");
+    return false;
   }
   renderRandomFood();
 };
