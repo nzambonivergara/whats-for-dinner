@@ -58,7 +58,6 @@ var randomDishSection = document.getElementById("random-dish");
 var clearButton = document.getElementById("clear-button");
 var cookpotImage = document.getElementById("cookpot-icon");
 
-console.log(clearButton)
 
 mealTypeForm.addEventListener('submit', getInputValue);
 clearButton.addEventListener('click', clearView);
@@ -103,6 +102,6 @@ function renderRandomFood() {
 
 function clearView() {
   clearButton.classList.add("hidden");
-  randomDishSection.innerHTML = "<img class='' id='cookpot-icon' src='assets/cookpot.svg' atl='cookpot icon'>"
+  randomDishSection.innerHTML = "<img id='cookpot-icon' src='assets/cookpot.svg' alt='cookpot icon'>"
   mealTypeForm.reset();
 };
