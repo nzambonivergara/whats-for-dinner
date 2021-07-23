@@ -30,12 +30,12 @@
     <section id="clear-button-container">
       <button id="clear-button" class="clear-button hidden">CLEAR</button>
     </section>
-    <section>
+    <section id="new-recipe-form-box" class="hidden">
       <form id="add-new-form">
-        <label for="recipe-type">Recipe Type: </label>
-        <input type="text" id="recipe-type" name="recipe-type" required>
-        <label for="recipe-name">Recipe Name: </label>
-        <input type="text" id="recipe-name" name="recipe-name" required>
+        <label for="recipe-type" class="new-recipe-label">Recipe Type: </label>
+        <input type="text" id="recipe-type" name="recipe-type" class="new-recipe-input" required>
+        <label for="recipe-name" class="new-recipe-label">Recipe Name: </label>
+        <input type="text" id="recipe-name" name="recipe-name" class="new-recipe-input" required>
         <button type="submit" id="add-recipe-button" value="ADD NEW">ADD NEW</button>
       </form>
     </section>
