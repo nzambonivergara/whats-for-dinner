@@ -1,4 +1,5 @@
-var sides = [
+var recipeTypes = {
+  sides: [
   "Miso Glazed Carrots",
   "Coleslaw",
   "Garden Salad",
@@ -9,10 +10,9 @@ var sides = [
   "Shrimp Summer Rolls",
   "Garlic Butter Mushrooms",
   "Hush Puppies"
-]
+  ],
 
-
-var mains = [
+  entrees: [
   "Spaghetti and Meatballs",
   "Pineapple Chicken",
   "Shakshuka",
@@ -26,10 +26,9 @@ var mains = [
   "Chicken Fried Rice",
   "Sheet Pan Fajitas",
   "Margarita Pizza"
-];
+],
 
-
-var desserts = [
+  desserts: [
   "Apple Pie",
   "Lemon Meringue Pie",
   "Black Forest Cake",
@@ -48,9 +47,11 @@ var desserts = [
   "Tart Tatin",
   "Croissants",
   "Eclairs"
-];
+  ]
+}
 
 var currentFood;
+var currentRecypeType;
 var mealTypeForm = document.getElementById("type-form");
 var inputValues = document.getElementsByName("meal-type");
 var randomDishSection = document.getElementById("random-dish");
@@ -76,7 +77,7 @@ function getInputValue() {
   event.preventDefault();
   for (var i =0; i < inputValues.length; i++) {
     if (inputValues[i].checked) {
-      currentFood = inputValues[i].value;
+      currentRecipeType = inputValues[i].value;
     }
   }
   randomFood()
@@ -84,14 +85,10 @@ function getInputValue() {
 
 function randomFood() {
   event.preventDefault();
-  if (currentFood === "side") {
-    currentFood = sides[getRandomIndex(sides)];
-  } else if (currentFood === "main-dish") {
-    currentFood = mains[getRandomIndex(mains)];
-  } else if (currentFood === "dessert") {
-    currentFood = desserts[getRandomIndex(desserts)];
-  } else if (currentFood === "entire-meal"){
-    currentFood = `${mains[getRandomIndex(mains)]} with a side of ${sides[getRandomIndex(sides)]} and ${desserts[getRandomIndex(desserts)]} for dessert`
+  if (recipeTypes[currentRecipeType]) {
+    currentFood = recipeTypes[currentRecipeType][getRandomIndex(recipeTypes[currentRecipeType])];
+  } else if (currentRecipeType === "entire-meal") {
+    currentFood = `${recipeTypes.entrees[getRandomIndex(recipeTypes.entrees)]} with a side of ${recipeTypes.sides[getRandomIndex(recipeTypes.sides)]} and ${recipeTypes.desserts[getRandomIndex(recipeTypes.desserts)]} for dessert`
   } else {
     window.alert("Choose a meal type: ");
     return false;
@@ -118,16 +115,23 @@ function displayAddNewForm() {
 function saveUserRecipe() {
   event.preventDefault();
   var recipeType = recipeTypeInput.value.toLowerCase();
-  if (recipeType === "side") {
-    sides.push(recipeNameInput.value);
-  } else if (recipeType === "main dish") {
-    mains.push(recipeNameInput.value);
-  } else if (recipeType === "dessert") {
-    desserts.push(recipeNameInput.value);
-  } else {
-    window.alert("Invalid recipe type. Enter side, main dish, or dessert.");
-    return false;
-  }
+  [recipeType].push(recipeNameInput.value)
+  // recipe type arrays within an object
+  // if (recipeTypesObject[recipeType]) {
+  // recipeTypesObject[recipeType].push(recypeNameInput.value);
+  // } else {
+    // recipeTypeObject[recipeType] = [recipeNameInput.value];
+    // REMEMBER TO CONSOLE LOG EVERYTHING AND CHECK VALUES!
+  // if (recipeType === "side") {
+  //   sides.push(recipeNameInput.value);
+  // } else if (recipeType === "main dish") {
+  //   mains.push(recipeNameInput.value);
+  // } else if (recipeType === "dessert") {
+  //   desserts.push(recipeNameInput.value);
+  // } else {
+  //   window.alert("Invalid recipe type. Enter side, main dish, or dessert.");
+  //   return false;
+  // }
   currentFood = recipeNameInput.value;
   newRecipeSection.classList.add("hidden");
   newRecipeForm.reset();
