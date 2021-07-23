@@ -51,17 +51,22 @@ var desserts = [
 ];
 
 var currentFood;
-
 var mealTypeForm = document.getElementById("type-form");
 var inputValues = document.getElementsByName("meal-type");
 var randomDishSection = document.getElementById("random-dish");
 var clearButton = document.getElementById("clear-button");
 var cookpotImage = document.getElementById("cookpot-icon");
-
+var addRecipeButton = document.getElementById("add-recipe");
+var addNewButton = document.getElementById("add-new-button");
+var newRecipeForm = document.getElementById("add-new-form");
+var recipeTypeInput = document.getElementById("recipe-type");
+var recipeNameInput = document.getElementById("recipe-name");
+var newRecipeSection = document.getElementById("new-recipe-form-box");
 
 mealTypeForm.addEventListener('submit', getInputValue);
 clearButton.addEventListener('click', clearView);
-
+addRecipeButton.addEventListener('click', displayAddNewForm);
+addNewButton.addEventListener('click', saveUserRecipe);
 
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
@@ -104,4 +109,27 @@ function clearView() {
   clearButton.classList.add("hidden");
   randomDishSection.innerHTML = "<img id='cookpot-icon' src='assets/cookpot.svg' alt='cookpot icon'>"
   mealTypeForm.reset();
+};
+
+function displayAddNewForm() {
+  newRecipeSection.classList.remove("hidden");
+};
+
+function saveUserRecipe() {
+  event.preventDefault();
+  var recipeType = recipeTypeInput.value.toLowerCase();
+  if (recipeType === "side") {
+    sides.push(recipeNameInput.value);
+  } else if (recipeType === "main dish") {
+    mains.push(recipeNameInput.value);
+  } else if (recipeType === "dessert") {
+    desserts.push(recipeNameInput.value);
+  } else {
+    window.alert("Invalid recipe type. Enter side, main dish, or dessert.");
+    return false;
+  }
+  currentFood = recipeNameInput.value;
+  newRecipeSection.classList.add("hidden");
+  newRecipeForm.reset();
+  renderRandomFood();
 };
