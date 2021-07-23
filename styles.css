@@ -13,14 +13,9 @@ red - #ee5253
 body {
   background-color: #cccccc;
   background-image: url(assets/burger-friends.jpg);
-  background-repeat: center;
   background-size: cover;
   margin: 0;
   font-family: 'Roboto', sans-serif;
-}
-
-main {
-  justify-content: space-around;
 }
 
 .hidden {
@@ -76,7 +71,7 @@ header > button {
 
 /* ------------- FORM SECTION -----------------*/
 
-form {
+#type-form {
   padding: 0;
   display: flex;
   flex-direction: column;
@@ -159,4 +154,45 @@ p {
   position: absolute;
   top: 85%;
   left: 75%;
+}
+
+/* --------------ADD NEW RECIPE FORM--------- */
+
+#new-recipe-form-box {
+  background-color: rgba(225, 225, 225, .9);
+  height: 8%;
+  width: 100%;
+  position: fixed;
+  top: 92%;
+
+}
+
+#add-new-form {
+  margin-top: 10px;
+  margin-left: 20px;
+  border: 0;
+  padding: 10px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+}
+
+#add-new-button {
+  height: 30px;
+  width: 10%;
+  margin-left: 25px;
+  font-size: 16px;
+  border: 0;
+  border-radius: 5px;
+  background-color: #0fb9b1;
+}
+
+.new-recipe-input {
+  margin-left: 10px;
+  height: 30px;
+  width: 10%;
+}
+
+.new-recipe-label {
+  margin-left: 20px;
 }
