@@ -96,7 +96,6 @@ function randomFood() {
   renderRandomFood();
 };
 
-
 function renderRandomFood() {
   clearButton.classList.remove("hidden");
   randomDishSection.innerHTML = `<p>You should make: <span class="random-result">${currentFood}!</span></p>`;
@@ -115,23 +114,11 @@ function displayAddNewForm() {
 function saveUserRecipe() {
   event.preventDefault();
   var recipeType = recipeTypeInput.value.toLowerCase();
-  [recipeType].push(recipeNameInput.value)
-  // recipe type arrays within an object
-  // if (recipeTypesObject[recipeType]) {
-  // recipeTypesObject[recipeType].push(recypeNameInput.value);
-  // } else {
-    // recipeTypeObject[recipeType] = [recipeNameInput.value];
-    // REMEMBER TO CONSOLE LOG EVERYTHING AND CHECK VALUES!
-  // if (recipeType === "side") {
-  //   sides.push(recipeNameInput.value);
-  // } else if (recipeType === "main dish") {
-  //   mains.push(recipeNameInput.value);
-  // } else if (recipeType === "dessert") {
-  //   desserts.push(recipeNameInput.value);
-  // } else {
-  //   window.alert("Invalid recipe type. Enter side, main dish, or dessert.");
-  //   return false;
-  // }
+  if (recipeTypes[recipeType]) {
+    recipeTypes[recipeType].push(recipeNameInput.value);
+  } else {
+    recipeTypes[recipeType] = [recipeNameInput.value];
+  }
   currentFood = recipeNameInput.value;
   newRecipeSection.classList.add("hidden");
   newRecipeForm.reset();
