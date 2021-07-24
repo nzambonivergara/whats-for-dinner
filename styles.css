@@ -58,7 +58,7 @@ header > button {
   height: 60%;
   width: 35%;
   margin: 3% 55% 37% 10%;
-
+  overflow: auto;
 }
 
 #random-dish {
@@ -67,6 +67,7 @@ header > button {
   height: 60%;
   width: 35%;
   margin: 3% 10% 37% 55%;
+  overflow: hidden;
 }
 
 /* ------------- FORM SECTION -----------------*/
@@ -79,14 +80,13 @@ header > button {
   top: 10%;
   left: 15%;
   right: 15%;
-  bottom: 10%;
   line-height: 250%;
-  font-size: 125%;
+  font-size: 1vw;
   font-weight: bold;
 }
 
 h2 {
-  font-size: 200%;
+  font-size: 2vw;
 }
 
 #submit-button {
