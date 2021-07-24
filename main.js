@@ -63,6 +63,7 @@ var newRecipeForm = document.getElementById("add-new-form");
 var recipeTypeInput = document.getElementById("recipe-type");
 var recipeNameInput = document.getElementById("recipe-name");
 var newRecipeSection = document.getElementById("new-recipe-form-box");
+var entireMealNode = document.getElementById("entire-meal-label");
 
 mealTypeForm.addEventListener('submit', getInputValue);
 clearButton.addEventListener('click', clearView);
@@ -118,9 +119,14 @@ function saveUserRecipe() {
     recipeTypes[recipeType].push(recipeNameInput.value);
   } else {
     recipeTypes[recipeType] = [recipeNameInput.value];
+    addNewMealType()
   }
   currentFood = recipeNameInput.value;
   newRecipeSection.classList.add("hidden");
   newRecipeForm.reset();
   renderRandomFood();
 };
+
+function addNewMealType() {
+  entireMealNode.insertAdjacentHTML("beforebegin", `<label for=${recipeTypeInput.value}><input type="radio" name="meal-type" id=${recipeTypeInput.value} value=${recipeTypeInput.value.toLowerCase()} class="form"/> ${recipeTypeInput.value}</label>`);
+}
