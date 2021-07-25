@@ -55,6 +55,7 @@ var currentRecypeType;
 var mealTypeForm = document.getElementById("type-form");
 var inputValues = document.getElementsByName("meal-type");
 var randomDishSection = document.getElementById("random-dish");
+var randomDishResult = document.getElementById("random-dish-result")
 var clearButton = document.getElementById("clear-button");
 var cookpotImage = document.getElementById("cookpot-icon");
 var addRecipeButton = document.getElementById("add-recipe");
@@ -90,21 +91,20 @@ function randomFood() {
     currentFood = recipeTypes[currentRecipeType][getRandomIndex(recipeTypes[currentRecipeType])];
   } else if (currentRecipeType === "entire-meal") {
     currentFood = `${recipeTypes.entrees[getRandomIndex(recipeTypes.entrees)]} with a side of ${recipeTypes.sides[getRandomIndex(recipeTypes.sides)]} and ${recipeTypes.desserts[getRandomIndex(recipeTypes.desserts)]} for dessert`
-  } else {
-    window.alert("Choose a meal type: ");
-    return false;
   }
   renderRandomFood();
 };
 
 function renderRandomFood() {
   clearButton.classList.remove("hidden");
-  randomDishSection.innerHTML = `<p>You should make: <span class="random-result">${currentFood}!</span></p>`;
+  cookpotImage.classList.add("hidden");
+  randomDishResult.innerHTML = `<p>You should make: <p class="random-result">${currentFood}!</p></p>`;
 };
 
 function clearView() {
   clearButton.classList.add("hidden");
-  randomDishSection.innerHTML = "<img id='cookpot-icon' src='assets/cookpot.svg' alt='cookpot icon'>"
+  cookpotImage.classList.remove("hidden");
+  randomDishResult.innerHTML = "";
   mealTypeForm.reset();
 };
 
@@ -129,4 +129,4 @@ function saveUserRecipe() {
 
 function addNewMealType() {
   entireMealNode.insertAdjacentHTML("beforebegin", `<label for=${recipeTypeInput.value}><input type="radio" name="meal-type" id=${recipeTypeInput.value} value=${recipeTypeInput.value.toLowerCase()} class="form"/> ${recipeTypeInput.value}</label>`);
-}
+};
